@@ -2,7 +2,7 @@ let input = document.querySelector("#input");
 let result = document.querySelector("#result");
 let btn = document.querySelector("#btn");
 
-input.addEventListener("input", function (e) {
+input.addEventListener("input", function(e) {
     const regLetters = /^[a-z\s]+$/i;
 
     let inpStr = e.target.value.toLowerCase().trim();
@@ -11,14 +11,17 @@ input.addEventListener("input", function (e) {
     return result.innerText = deleteEmpties.join("");
 });
 
-btn.addEventListener("click", function () {
+btn.addEventListener("click", function() {
     navigator.clipboard.writeText(result.innerText);
 });
 
+input.addEventListener("focus", function() {
+    return input.value = ' '
+});
 
 function empties(elem) {
-    let arr = elem.map(function (el) {
-        return el === " " ? "-": el;
+    let arr = elem.map(function(el) {
+        return el === " " ? "-" : el;
     });
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === "-" && arr[i + 1] === "-") {
