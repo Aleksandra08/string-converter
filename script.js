@@ -3,7 +3,7 @@ let result = document.querySelector("#result");
 let btn = document.querySelector("#btn");
 
 input.addEventListener("input", function(e) {
-    const regLetters = /^[a-z\s]+$/i;
+    const regLetters = /^[a-zа-я0-9\s]+$/i;
 
     let inpStr = e.target.value.toLowerCase().trim();
     let outStr = [...inpStr].filter((elem) => regLetters.test(elem));
